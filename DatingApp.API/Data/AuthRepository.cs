@@ -28,8 +28,6 @@ namespace DatingApp.API.Data
             return user;
 
         }
-
-    
         public async Task<User> Register(User user, string password)
         {
             byte[] passwordHash,passwordSalt;
