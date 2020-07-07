@@ -62,17 +62,14 @@ namespace DatingApp.API.Data
             }
         }
 
-        public async Task<bool> UserExists(string username)
+         public async Task<bool> UserExists(string username)
         {
-            if (await _context.Users.AnyAsync(x => x.Username == username))
-                return true;
+            // AnyAsync returns true if user is found in the db, false otherwise
+            if (await _context.Users.AnyAsync(x => x.Username == username)) return true;
 
+            // if username is not found in the database, return true
             return false;
         }
 
-        public Task<bool> UserExist(string username)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
